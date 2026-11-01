@@ -1,6 +1,6 @@
 import re, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-STUDIO = pathlib.Path("/Users/sushanthgopireddy/Library/Developer/Xcode/Fuel & Frame/basaltlabsapps-site")
+STUDIO = ROOT.parent / "basaltlabsapps-site"  # the studio site, checked out beside this one
 BETA = "https://testflight.apple.com/join/wJWjfs3D"
 
 def page(path, title, desc, current, body):
