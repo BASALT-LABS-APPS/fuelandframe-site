@@ -81,7 +81,7 @@ home = f"""<main>
       <div class="eyebrow">For iPhone and Apple Watch</div>
       <h1>Food, training and progress. One calm app.</h1>
       <p class="lead">Fuel &amp; Frame turns what you eat and how you train into clear next steps — on your own, or with a real coach when you want one.</p>
-      <div class="rings" aria-label="Your three daily rings">
+      <div class="rings" aria-label="Your three daily goals">
         <span class="ring-chip"><i style="background: var(--carbs)"></i>Fuel</span>
         <span class="ring-chip"><i style="background: var(--accent)"></i>Train</span>
         <span class="ring-chip"><i style="background: var(--fiber)"></i>Hydrate</span>
@@ -94,15 +94,15 @@ home = f"""<main>
     </div>
     <div class="phones">
       {phone("workoutpicture", "The workout player: one exercise at a time with its demo and sets")}
-      {phone("today", "My Day: rings, your week and today's nutrition")}
+      {phone("today", "My Day: your goals, your week and today's nutrition")}
     </div>
   </div>
 
   <div id="features"></div>
 {feature("My Day", "Your whole day, at a glance.",
-  "Three rings — Fuel, Train and Hydrate — show how today is going. Close them for a perfect day and keep your streak alive.",
+  "Three daily goals — Fuel, Train and Hydrate — show how today is going. Hit all three for a perfect day and keep your streak alive.",
   ["Cards for nutrition, water, training, steps, sleep, weight and fasting, in the order you choose",
-   "A weekly look back and a gentle nudge when a ring is close",
+   "A weekly look back and a gentle nudge when a goal is nearly there",
    "Your reason for starting, shown on the days you need it most"],
   [phone("why", "My Day with a coach note, your why and then and now")], dot="carbs")}
 {feature("Nutrition", "Log food in seconds.",
@@ -193,7 +193,7 @@ page("index.html", "Fuel & Frame — food, training and progress in one calm app
 
 # ---------- Plans ----------
 plans = [
-    ("App Access", "On your own", "14.99", False, ["Food, water, drinks and fasting", "Targets calculated for you", "Your own workouts and recipes", "Rings, streaks, insights and friends", "Apple Health and Apple Watch"]),
+    ("App Access", "On your own", "14.99", False, ["Food, water, drinks and fasting", "Targets calculated for you", "Your own workouts and recipes", "Goals, streaks, insights and friends", "Apple Health and Apple Watch"]),
     ("Nutrition", "Coached", "24.99", False, ["Everything in App Access", "A custom meal plan and recipes from your coach", "A meal plan change every 2 weeks on request"]),
     ("Nutrition + Training", "Coached", "39.99", True, ["Everything in Nutrition", "A custom training program from your coach", "A program refresh every 4 weeks on request"]),
     ("Full Coaching", "Coached", "89.99", False, ["Everything in Nutrition + Training", "Message your coach directly", "Weekly check-in review", "Feedback on your logs", "A program adjusted as you progress"]),
@@ -208,7 +208,7 @@ rows = [
     ("Food, water, drinks and fasting tracking", [1,1,1,1]),
     ("Targets calculated for you, adjusted weekly", [1,1,1,1]),
     ("Your own workouts and recipes", [1,1,1,1]),
-    ("Rings, streaks, insights and friends", [1,1,1,1]),
+    ("Goals, streaks, insights and friends", [1,1,1,1]),
     ("Apple Health and Apple Watch", [1,1,1,1]),
     ("Custom meal plan from your coach", [0,1,1,1]),
     ("Custom training program from your coach", [0,0,1,1]),
