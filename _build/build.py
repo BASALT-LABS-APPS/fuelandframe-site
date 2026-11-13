@@ -40,7 +40,7 @@ def page(path, title, desc, current, body):
 <footer class="site">
   <div class="wrap">
     <span>© 2026 BASALT LABS LLC</span>
-    <span><a href="/support/">Support</a><a href="/privacy/">Privacy Policy</a><a href="mailto:hello@basaltlabsapps.com">Contact</a><a href="https://www.basaltlabsapps.com">BASALT LABS</a></span>
+    <span><a href="/support/">Support</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="mailto:hello@basaltlabsapps.com">Contact</a><a href="https://www.basaltlabsapps.com">BASALT LABS</a></span>
   </div>
 </footer>
 
@@ -339,6 +339,35 @@ privacy = main_of("fuel-and-frame/privacy/index.html")
 privacy = re.sub(r'<main class="([^"]*)"', lambda m: f'<main class="{m.group(1) if "wrap" in m.group(1) else "wrap " + m.group(1)}"', privacy, count=1)
 privacy = privacy.replace('href="/fuel-and-frame/', 'href="/')
 page("privacy/index.html", "Privacy Policy — Fuel & Frame", "The Fuel & Frame privacy policy.", "", privacy)
+
+# ---------- Terms of Use and Community Rules: also from the studio site ----------
+def doc(p):
+    body = main_of(p).replace('<main class="doc">', '<main class="wrap doc">')
+    return body.replace('href="/fuel-and-frame/', 'href="/')
+page("terms/index.html", "Terms of Use — Fuel & Frame", "The Fuel & Frame terms of use, including subscriptions and community rules.", "", doc("fuel-and-frame/terms/index.html"))
+page("community/index.html", "Community Rules — Fuel & Frame", "What's allowed in Fuel & Frame's friends features, and how reports are handled.", "", doc("fuel-and-frame/community/index.html"))
+
+# Old /fuel-and-frame/ links (the app and the App Store listing) forward here.
+def forward(old, new):
+    out = ROOT / old / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fuel &amp; Frame</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://www.basaltlabsapps.com{new}">
+<meta http-equiv="refresh" content="0; url={new}">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<p>This page has moved. <a href="{new}">Continue to Fuel &amp; Frame</a>.</p>
+</body>
+</html>
+""")
+forward("fuel-and-frame/terms", "/terms/")
+forward("fuel-and-frame/community", "/community/")
 
 # ---------- 404 ----------
 page("404.html", "Page not found — Fuel & Frame", "This page doesn't exist.", "", """<main class="wrap doc">
